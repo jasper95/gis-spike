@@ -1,12 +1,19 @@
 global.Promise = require('bluebird')
-const fs = Promise.promisifyAll(require('fs'))
-const getGeodata = require('./getGeodata')
-const topojson = require('topojson-server')
+const archiver = require('archiver');
+const fs = require('fs')
+const gdal = require('gdal')
 
 async function main() {
-  let geojson = await fs.readFileAsync('./data/man_firehaz.zip').then(getGeodata)
-  const x = topojson.topology({ data: geojson })
+  const ds = gdal.open('data/doc.kml')
+  const driver = gdal.drivers.get('ESRI Shapefile')
+  const dscopy = driver.createCopy('data/man_firehaz', ds, {"COMPRESS":"NONE","TILED": "NONE",})
+  ds.close();
+  dscopy.close();
 
-  await fs.writeFileAsync('./data/result.json', JSON.stringify(result))
+  const zip = archiver('zip');
+  const output = fs.createWriteStream('data/target.zip');
+  zip.directory('data/man_firehaz', '')
+  zip.finalize();
+  zip.pipe(output)
 }
 main()

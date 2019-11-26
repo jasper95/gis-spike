@@ -1,4 +1,4 @@
-const parseDbf = require('parseDbf')
+const parseDbf = require('parsedbf')
 const parseShp = require('shpjs/lib/parseShp')
 const unzip = require('shpjs/lib/unzip')
 const proj4 = require('proj4')
