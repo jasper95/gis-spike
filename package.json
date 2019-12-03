@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "geojson2postgis": "geojson2postgis --database cenvi --user jasper --password Passw0rd3"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "archiver": "^3.1.1",
     "bluebird": "^3.7.1",
     "gdal": "^0.9.9",
+    "geojson2postgis": "^1.0.0",
     "gtran": "^1.0.11",
     "jszip": "^3.2.2",
     "lodash": "^4.17.15",
