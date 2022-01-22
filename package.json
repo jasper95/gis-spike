@@ -19,7 +19,7 @@
     "gtran": "^1.0.11",
     "jszip": "^3.2.2",
     "lodash": "^4.17.15",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "shp-write": "^0.3.2",
     "shpjs": "^3.4.3",
     "togeojson": "^0.16.0",
